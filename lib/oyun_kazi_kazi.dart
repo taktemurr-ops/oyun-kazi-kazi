@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kazi.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const kaziId = 'oyun-kazi-kazi';
 
@@ -88,7 +87,7 @@ final kaziConfig = GameConfig(
   rules: kaziRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => kaziRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => kaziRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintDig(c, s, p, t);
